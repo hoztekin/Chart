@@ -1,0 +1,40 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				animationEnabled: true,
+				theme: "light2", // "light1", "light2", "dark1", "dark2"
+				title: {
+					text: "Number of Employees under Each Manager"
+				},
+				axisY: {
+					title: "No. of Employees"
+				},
+				data: [{
+					type: "column",
+					dataPoints: @Html.Raw(ViewBag.DataPointsBar)
+			}]
+			});
+			chart.render();
+
+		}
+	</script>
+</head>
+<body>
+	<div class="container"> 
+		<div class="row">
+			<div class="col-xl-6">
+				<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+			</div>			
+		</div>
+	</div>	
+	<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</body>
+</html>  

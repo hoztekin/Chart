@@ -1,42 +1,7 @@
 ﻿@{
-	Layout = null;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<script>
-		window.onload = function () {
-
-		var chart = new CanvasJS.Chart("chartContainer", {
-			animationEnabled: true,
-			title: {
-				text: "Percentage Market Share of Treatments in Alternative Medicine"
-			},
-			data: [{
-				type: "doughnut",
-				startAngle: 60,
-				indexLabelFontSize: 16,
-				indexLabel: " {label} - {y} ₺",
-				toolTipContent: "<b> {label}:</b> {y} ₺",
-				dataPoints: @Html.Raw(ViewBag.DataPoints)
-			}]
-		});
-		chart.render();
-
-		}
-	</script>
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-6">
-				<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-			</div>
-		</div>
-	</div>
-				
-			
-	<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-</body>
-</html>
+<a asp-action="Dougnut">Dougnut</a>
+<a asp-action="BarChart">Bar Chart</a>
+<a asp-action="FunnelChart">Funnel Chart</a>
